@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@nomicfoundation/hardhat-verify": "^2.0.1",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "ethers": "^5.7.2"
   }
 }
