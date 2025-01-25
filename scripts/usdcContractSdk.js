@@ -81,17 +81,19 @@ async function main() {
       const formattedAmountValues = amounts.map((amount) =>
         ethers.utils.parseUnits(amount, 6)
       );
-      console.log("👀:", amounts, "FORMATTED:", formattedAmountValues);
 
       const totalUSDCToTransfer = amounts.reduce(
-        (total, amount) => total + amount,
+        (total, amount) => Number(total) + Number(amount),
         0
       );
+
       const formattedTotal = ethers.utils.parseUnits(
         `${totalUSDCToTransfer}`,
         6
       );
-      console.log(`Approving ${formattedTotal} USDC....`);
+      console.log(
+        `Approving ${ethers.utils.formatUnits(formattedTotal, 6)} USDC....`
+      );
       const approveTx = await usdcContract.approve(
         SWIFTPAY_CONTRACT_ADDR,
         formattedTotal
@@ -110,13 +112,13 @@ async function main() {
       await tx2.wait();
       console.log(`Batch transfer successful: ${tx2.hash}`);
     }
-    // batchTransferUSDC(
-    //   [
-    //     "0xaA96052CbEFc4d9c8daEB069884A99E2cEFFB371",
-    //     "0x1339514086Fc15C5e38AF4E0407C469Ca3911992",
-    //   ],
-    //   ["3", "2"]
-    // );
+    batchTransferUSDC(
+      [
+        "0xaA96052CbEFc4d9c8daEB069884A99E2cEFFB371",
+        "0x1339514086Fc15C5e38AF4E0407C469Ca3911992",
+      ],
+      ["1", "1"]
+    );
 
     // Fetch the total number of transactions
     async function getTotalNumberOfTxns() {
