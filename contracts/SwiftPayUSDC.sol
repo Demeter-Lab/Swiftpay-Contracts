@@ -15,13 +15,8 @@ interface IUSDC {
     function balanceOf(address owner) external view returns (uint);
 }
 
-// [0x1339514086Fc15C5e38AF4E0407C469Ca3911992,0xaA96052CbEFc4d9c8daEB069884A99E2cEFFB371],[3000000,1000000]
-// ["0x1339514086Fc15C5e38AF4E0407C469Ca3911992","0xaA96052CbEFc4d9c8daEB069884A99E2cEFFB371"],[3999996,1000000]
-
 contract SwiftPayUSDC {
     uint256 totalTxns;
-    // USDC BASE-MAINNET: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
-    // USDC BASE-SEPOLIA: 0x036CbD53842c5426634e7929541eC2318f3dCF7e
     address public usdcContractAddress;
     IUSDC usdcContract;
 
