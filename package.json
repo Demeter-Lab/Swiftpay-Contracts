@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy-base-testnet": "npx hardhat run scripts/deployContract.js --network basesepolia",
+    "deploy-base-mainnet": "npx hardhat run scripts/deployContract.js --network base"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +13,9 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "hardhat": "^2.22.17"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-verify": "^2.0.1",
+    "dotenv": "^16.4.7"
   }
 }
